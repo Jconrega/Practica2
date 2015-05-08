@@ -134,38 +134,48 @@ public:
 
 
 	void InOrderIterative(p2List<NodeTree<Type>*>* list){
+		
 		Stack<NodeTree<Type>*> stack;
+
 		NodeTree<Type>* node = &rootNode;
 
-		bool done = false;
-		while (!done)
+		bool finish = false;
+
+		while (finish==false) 
 		{
 			if (node != NULL)
 			{
-				if (list->find(node) == -1)
-					stack.Push(node);
+				if (list->find(node)==-1)
+					stack.Push(node);//posso el node a la pila
 				if (node->child.count() != 0)
-					node = node->child.start->data;
+					node = node->child.start->data; //mirem el primer fill.
 				else
 					node = NULL;
-				
+
+
 			}
 			else
 			{
-				if (stack.Count() > 0)
+				if (stack.Count() != 0)
 				{
-					stack.Pop(node);
-					list->add(node);
+					stack.Pop(node); //Node val l'ultim el que li hem posat a la pila
+
+					list->add(node); //afegim el node a la llista
 					if (node->child.count() != 0)
-						node = node->child.end->data;
+						node = node->child.end->data; //mirem l'ultim fill
 					else
 						node = NULL;
 				}
 				else
-					done = true;
+				{
+					finish = true;
+				}
+				
+
 			}
-			
+
 		}
+		
 
 		
 
