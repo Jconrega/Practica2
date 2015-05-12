@@ -6,6 +6,7 @@
 #define __P2DYNARRAY_H__
 
 #include <assert.h>
+#include "utilities.h"
 
 #define DYN_ARRAY_BLOCK_SIZE 16
 
@@ -140,13 +141,71 @@ public:
 		return num_elements;
 	}
 
+	int BubbleSort()
+	{
+		bool finish = false;
+		int counter = 0;;
+
+
+		if (num_elements == NULL)
+			finish = true;
+
+		while (finish != true);
+		{
+			finish = true;
+			
+			for (int i = 0; i < num_elements - 1; i++)
+				{
+					counter++;
+					
+					if (data[i]>data[i + 1])
+					{
+						swap(data[i], data[i + 1]);
+						finish = false;
+					}
+				}
+		}
+
+		return counter;
+	}
+
+	int BubbleSortOptimize()
+	{
+		bool finish = false;
+		int counter = 0; 
+		
+
+		if (num_elements == NULL)
+			finish = true;
+
+		while (finish != true);
+		{
+			finish = true;
+			
+			for (int i = 0; i < num_elements - 1; i++)
+				{
+					counter++;
+					
+					if (data[i]>data[i + 1])
+					{
+						swap(data[i], data[i + 1]);
+						finish = false;
+					}
+				}
+		}
+
+		return counter;
+
+
+	}
+
 private:
 	
 	// Private Utils
 	void Alloc(unsigned int mem)
 	{
 		VALUE* tmp = data;
-
+		
 		mem_capacity = mem;
 		data = new VALUE[mem_capacity];
 

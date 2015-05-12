@@ -90,6 +90,7 @@
     <ClInclude Include="p2QuadTree.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="Tree.h" />
+    <ClInclude Include="utilities.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
